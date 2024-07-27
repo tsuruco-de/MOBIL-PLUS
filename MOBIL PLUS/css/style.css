@@ -1,0 +1,492 @@
+@charset "UTF-8";
+/* ＝＝＝＝＝＝＝＝＝＝＝
+共通設定
+＝＝＝＝＝＝＝＝＝＝＝＝ */
+html {
+    font-size: 100%;
+}
+body {
+    color: #121212;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+a {
+    color: #121212;
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
+li {
+    list-style: none;
+}
+    
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    /* border: 2px solid violet; */
+    padding: 80px 0 60px 0;
+}
+
+h3 {
+    margin-bottom: 30px;
+    line-height: 1;
+}
+
+#service, #export, #sdgs {
+    background-color: rgb(250, 250, 250);
+    /* border: 1px solid; */
+    /* width: 100%; */
+}
+
+/* ＝＝＝＝＝＝＝＝＝＝＝
+header
+＝＝＝＝＝＝＝＝＝＝＝＝ */
+#header {
+    width: 100%;
+    height: 60px;
+    /* justify-content: space-around; */
+    /* padding: 8px 200px; */
+    position: fixed;
+    z-index: 10;
+    background-color: #fff;
+    /* border: 3px solid red; */
+    box-shadow: 0px 1px 5px rgb(200, 200, 200);
+}
+
+.header-container {
+    display: flex;
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 4px 0;
+}
+
+
+h1 {
+    /* width: 60%; */
+    display: flex;
+    /* border: 1px solid red; */
+}
+.site-logo{
+    display: flex;
+}
+.logo-text, .logo {
+    object-fit: contain;
+    /* border: 1px solid blue; */
+}
+
+.usedcar-top {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #FF4D00;
+    color: #FFF;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.1s, box-shadow 0.1s;
+    margin-right: 5%;
+}
+
+.usedcar-top:hover {
+    border-bottom: solid 4px #a93300;
+    transform: translateY(-1px); 
+}
+
+.usedcar-top:active {
+    transform: translateY(4px); 
+    border-bottom: none; 
+}
+
+.usedcar-top a {
+    color: inherit;
+}
+
+.header-menu {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    /* border: 1px solid red; */
+    align-items: center;
+}
+
+/* ハンバーガーメニュー */
+#navi {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    bottom: 0;
+    max-width: 300px;
+    color: #fff;
+    padding: 40px 25px;
+    background-color: #36A9A5;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: all 0.5s;
+    z-index: 20;
+    opacity: 0;
+    font-weight: bold;
+}
+
+#navi a {
+    color: #fff;
+}
+.open #navi {
+    left: 0;
+    opacity: 1;
+}
+#navi ul {
+    margin: 0;
+    padding: 0;
+}
+#navi ul.nav-menu {
+    margin-bottom: 60px;
+    border-top: solid 1px #fff;
+}
+#navi ul.nav-menu li {
+    position: relative;
+    margin: 0;
+    padding: 20px 0;
+    border-bottom: solid 1px #fff;
+}
+
+.toggle_btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 20;
+    position: relative;
+    background-color: #339390;
+}
+
+.toggle_btn span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 70%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: all 0.5s;
+}
+.toggle_btn span:nth-child(1) {
+    top: 25%;
+    left: 15%;
+}
+.toggle_btn span:nth-child(2) {
+    top: 50%;
+    left: 15%;
+}
+.toggle_btn span:nth-child(3) {
+    top: 75%;
+    left: 15%;
+}
+.open .toggle_btn span {
+    background-color: #fff;
+}
+.open .toggle_btn span:nth-child(1) {
+    top: 50%;
+    -webkit-transform:rotate(-315deg);
+    transform:rotate(-315deg);
+}
+.open .toggle_btn span:nth-child(2) {
+    opacity: 0;
+}
+.open .toggle_btn span:nth-child(3) {
+    top: 50%;
+    -webkit-transform:rotate(315deg);
+    transform:  rotate(315deg);
+}
+
+#mask {
+    display: none;
+    transition: all 0.5s;
+}
+
+.open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #9f9f9fcb;
+    opacity: 0.8;
+    z-index: 10;
+    cursor: pointer;
+}
+
+
+/* ＝＝＝＝＝＝＝＝＝＝＝
+mainvisual
+＝＝＝＝＝＝＝＝＝＝＝＝ */
+.mainvisual {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/mainvisual.jpg);
+    background-size: cover;
+    background-position: center top;
+    box-shadow: 0px 5px 10px rgb(145, 145, 145);
+}
+
+/* ＝＝＝＝＝＝＝＝＝＝＝
+ABOUT US
+＝＝＝＝＝＝＝＝＝＝＝＝ */
+.about-logo {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid red;
+    margin: 30px 0 60px 0;
+}
+
+.about-list {
+    background-color: #339390;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    line-height: 1.1;
+    font-size: 1.3rem;
+    width: 20%;
+}
+
+.list-title1 {
+    margin: 8% 0 5% 0;
+}
+.list-title2{
+    margin: 5% 0 0 0;
+}
+
+/* .about-text {
+    margin: 0 auto;
+    text-align: left;
+} */
+
+.business-title {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    border: 1px solid ;
+    height: 32px;
+    line-height: 32px;
+}
+
+.business-title img{
+width: 32px;
+height: 32px;
+object-fit:contain;
+}
+
+.business-intro {
+    display: flex;
+    justify-content: space-between;
+}
+
+.business {
+    background-color: #82cbc9a5;
+    width: 48%;
+    padding: 40px 50px;
+    margin-bottom: 60px;
+}
+
+h4 {
+    font-size: 1.2rem;
+    text-shadow: 0px 5px 8px grey;
+}
+
+.business img {
+    margin: 20px 0;
+    box-shadow: 1px 10px 20px gray;
+}
+
+.business-btn {
+    background-color: #36A9A5;
+    border: 3px solid #339390;
+    width: 100%;
+    border-radius: 20px;
+    padding: 8px 0;
+    transition: 0.1s, 0.1s;
+}
+
+.business-btn:hover{
+    background-color: #339390;
+}
+
+.business-btn a {
+    color: #fff;
+    font-size: 0.9rem;
+    transform: translateY(-1px);
+}
+
+.business-btn a:hover {
+    color: #fff;
+}
+
+.number-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+.number-text {
+    max-width: 460px;
+    margin: 16px auto;
+}
+
+.number {
+    padding: 8px 16px;
+    background-color: #fff;
+    border: 1px solid #FF4D00;
+    max-width: 448px;
+    color: #FF4D00;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: 0 auto;
+}
+
+
+/* ＝＝＝＝＝＝＝＝＝＝＝
+Service
+＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+
+/* ＝＝＝＝＝＝＝＝＝＝＝
+various
+＝＝＝＝＝＝＝＝＝＝＝＝ */
+.various-img {
+    object-fit: cover;
+    margin-top: 30px;
+    height: 490px;
+    width: 100%;
+}
+
+/* ＝＝＝＝＝＝＝＝＝＝＝
+export
+＝＝＝＝＝＝＝＝＝＝＝＝ */
+.export-contain {
+    display: flex;
+    justify-content: space-between;
+}
+.export-contain img {
+    width: 48%;
+    object-fit: cover;
+}
+.export-text {
+    width: 48%;
+    text-align: left;
+}
+
+
+/* ＝＝＝＝＝＝＝＝＝＝＝
+used
+＝＝＝＝＝＝＝＝＝＝＝＝ */
+.used-img {
+    border: 10px solid #fff;
+    max-width: 100%;
+    object-fit: cover;
+}
+.used-img:hover {
+    border: 10px solid #FFDA3F;
+}
+
+/* ＝＝＝＝＝＝＝＝＝＝＝
+sdgs
+＝＝＝＝＝＝＝＝＝＝＝＝ */
+#sdgs {
+    position: relative; /* 親要素を相対位置に */
+/* min-height: 800px; */
+}
+
+#sdgs::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/sdgs.png);
+    background-size: cover;
+    opacity: 0.2;
+    /* z-index: -1;  */
+}
+
+/* ＝＝＝＝＝＝＝＝＝＝＝
+access
+＝＝＝＝＝＝＝＝＝＝＝＝ */
+/* .address-container {
+    display: flex;
+}
+.map {
+    border: 1px solid rgb(234, 234, 234);
+} */
+
+.address-container {
+    display: flex;
+    gap: 20px; /* 地図と住所の間にギャップを追加 */
+}
+
+.map, .address {
+    width: 50%;
+    /* height: 450px; 地図の高さと一致 */
+}
+
+.address {
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-start;
+    padding: 20px; /* 内側の余白を追加 */
+    box-sizing: border-box; 
+    /* border: 1px solid rgb(234, 234, 234);*/ 
+    text-align: left; /* 文字を左詰めに設定 */
+    /* background-color: #fff; */
+}
+
+
+/* ＝＝＝＝＝＝＝＝＝＝＝
+footer
+＝＝＝＝＝＝＝＝＝＝＝＝ */
+footer {
+    background-color: #82cbc9a5;
+}
+
+.footer-container {
+    /* display: flex; */
+    max-width: 1000px;
+
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.footer-menu a:hover {
+    color: #FF4D00;
+}
+
+.footer-logo {
+    display: block;
+    text-align: center;
+}
+.footer-logo img {
+    max-width: 30%;
+    object-fit: cover;
+    display: inline-block;
+}
+
+.copy-light {
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 4px 0;
+}
